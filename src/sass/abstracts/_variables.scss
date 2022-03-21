@@ -1,3 +1,51 @@
 /* ********* */
 /* @VARIABLES */
 /* ********* */
+
+$coloresPolaroid: (
+    primero: #B6E4EB,
+    segundo: #D9F1F2,
+    tercero: #FBDEE2,
+    cuarto: #FEAFAB,
+    quinto: #FBD5B0,
+    sexto: #FCF1D7
+);
+
+$contador: 1;
+@each $color in map-keys($coloresPolaroid){
+    .polaroid#{$contador}{
+        width: 60%;
+        height: 300px;
+        border: 10px solid white;
+        border-bottom: 0px;
+        background: map-get($coloresPolaroid, $color);
+        display: flex;
+        align-items: flex-end;
+
+        &:hover{
+            background-image: url('../assets/img/desktop/polaroid-#{$contador}.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+            //Animamos la imagen cuando aparece
+            img{
+                
+
+            }
+
+            }
+        }
+        $contador: $contador + 1;
+    }
+
+figcaption {
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    position: relative;
+    background-color: white;
+    width: 100%;
+}
+
